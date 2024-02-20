@@ -1,1 +1,40 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSS Aggregator</title>
+</head>
+<body>
+  <ul id="rss-feed"></ul>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rss-parser/3.5.2/rss-parser.min.js"></script>
+  <script>
+    const parser = new RSSParser();
+
+    // Array of RSS feed URLs
+    const rssFeeds = [
+      'https://cert.gov.ua/api/articles/rss',
+      'https://blogs.microsoft.com/on-the-issues?feed=rss2',
+      // Add more feed URLs as needed
+    ];
+
+    const rssFeedElement = document.getElementById('rss-feed');
+
+    rssFeeds.forEach(feedUrl => {
+      parser.parseURL(feedUrl, (err, feed) => {
+        if (err) {
+          console.error('Error parsing RSS feed:', err);
+          return;
+        }
+        feed.items.forEach(item => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `<a href="${item.link}">${item.title}</a>`;
+          rssFeedElement.appendChild(listItem);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
