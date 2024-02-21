@@ -108,7 +108,7 @@ nav {
     left: 0px;
     bottom: 0px;
     z-index: 1;
-    overflow: hidden;
+    overflow: auto; /*hidden*/
 }
 #nav-links {
     display: flex;
