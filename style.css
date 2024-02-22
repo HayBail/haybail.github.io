@@ -102,7 +102,7 @@ body[data-nav="true"] > main {
     object-fit: cover;
 }
 nav {
-    height: 47vh;
+    height: 46.5vh;
     width: 100%;
     position: absolute;
     left: 0px;
