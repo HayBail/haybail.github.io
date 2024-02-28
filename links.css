@@ -5,8 +5,9 @@ body {
 }
 
 nav {
-  display: block;
+  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin-top: 20vh;
   padding: clamp(1rem, 5vw, 6rem);
 }
